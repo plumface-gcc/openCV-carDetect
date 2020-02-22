@@ -3,7 +3,7 @@ A lightweight computer vision application made to detect cars.
 
 # Prerequisites 
 ## Libraries
-In python command line, pass in these commands: *(assuming you have pip installed)* 
+In python command line, pass in these commands: *(assuming you have pip installed, and python is installed to PATH.)* 
 1. pip install urllib3
 2. pip install opencv-python
 3. pip install numpy
@@ -24,7 +24,7 @@ For the program to work, you need a app named IPWebcam. It can be downloaded on 
 7. Profit!
 
 # Todo
-- Make a better cascade
+- Make a better cascade, more negative samples needed.
 - Change multiscale, extremely hard to get correct amount of layers and K neighbors.
 
 
