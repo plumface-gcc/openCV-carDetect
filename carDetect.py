@@ -1,10 +1,15 @@
 import numpy as np
 import cv2
 import urllib.request
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('IP', help = "Ip address from ipwebcam app.")
+args = parser.parse_args()
 
 car_cascade = cv2.CascadeClassifier("car.xml")
 
-url = "http://192.168.1.14:8080/shot.jpg"
+url = "http://" + args.IP + "/shot.jpg"
 
 cap = cv2.VideoCapture()
 
@@ -16,10 +21,10 @@ def phonecamera():
         img = cv2.imdecode(img_arr, -1)
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        car_multiScale = car_cascade.detectMultiScale(gray, 1.10, 5) # self, layers, K neighbors
+        car_multiScale = car_cascade.detectMultiScale(gray, 1.20, 4) # self, layers, K neighbors
 
         for (x, y, w, h) in car_multiScale:
-            cv2.putText(img, "Car", (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3)
+            cv2.putText(img, "Car", (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3) # draw text over bounding box
 
             cv2.rectangle(img, (x, y), (x + y, y + h), (255, 0, 0), 2) # draw box to screen
 
@@ -34,5 +39,6 @@ def mainrun():
         phonecamera()
     except urllib.error.URLError as e:
         print("Bad url entered. Please run program again with new args.")
+
 
 mainrun()
