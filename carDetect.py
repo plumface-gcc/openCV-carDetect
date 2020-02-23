@@ -21,7 +21,7 @@ def phonecamera():
         img = cv2.imdecode(img_arr, -1)
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        car_multiScale = car_cascade.detectMultiScale(gray, 1.20, 4) # self, layers, K neighbors
+        car_multiScale = car_cascade.detectMultiScale(gray) # self, layers, K neighbors
 
         for (x, y, w, h) in car_multiScale:
             cv2.putText(img, "Car", (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3) # draw text over bounding box
