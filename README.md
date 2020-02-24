@@ -9,10 +9,10 @@ In python command line, pass in these commands: *(assuming you have pip installe
 3. pip install numpy
 
 ## IPWebcam
-For the program to work, you need a app named IPWebcam. It can be downloaded on IOS and Android
+For the program to work, you need a app named IPWebcam. It can be downloaded on Android only for now.
 - IPWebcam allows the application to obtain image input, which can then be processed by opencv.
 - When you have IPWebcam downloaded, open it and start a server. Keep it open as we will need it later.
-- [download on the play store ](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_CA)
+- [download on the play store here](https://play.google.com/store/apps/details?id=com.pas.webcam&hl=en_CA)
 
 # How to use
 ## Passing in args
