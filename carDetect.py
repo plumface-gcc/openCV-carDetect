@@ -21,12 +21,12 @@ def phonecamera():
         img = cv2.imdecode(img_arr, -1)
 
         gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        car_multiScale = car_cascade.detectMultiScale(gray) # self, layers, K neighbors
+        car_multiScale = car_cascade.detectMultiScale(gray, 1.10, 5) # self, layers, K neighbors
 
         for (x, y, w, h) in car_multiScale:
             cv2.putText(img, "Car", (x, y - 20), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 0, 255), 3) # draw text over bounding box
 
-            cv2.rectangle(img, (x, y), (x + y, y + h), (255, 0, 0), 2) # draw box to screen
+            cv2.rectangle(img, (x, y), (x + y, y + h), (255, 255, 0), 2) # draw box to screen
 
         cv2.imshow('IPWebcam Output', img) # output image
 
